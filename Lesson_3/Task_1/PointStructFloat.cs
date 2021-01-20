@@ -22,8 +22,7 @@ namespace Task_1
         {
             float x = Сoordinate_X - point.Сoordinate_X;
             float y = Сoordinate_Y - point.Сoordinate_Y;
-            float rezult = (x * x) + (y * y);
-            return MathF.Sqrt(rezult);
+            return MathF.Sqrt((x * x) + (y * y));
         }
 
         public float Distance_Fsrt(PointStructFloat point)

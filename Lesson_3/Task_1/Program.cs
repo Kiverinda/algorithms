@@ -13,7 +13,6 @@ namespace Task_1
         static void Main()
         {
             BenchmarkRunner.Run<Benchmarks>();
-
             Console.ReadLine();
         }
     }

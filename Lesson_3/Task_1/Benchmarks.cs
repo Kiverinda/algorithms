@@ -10,58 +10,74 @@ namespace Task_1
 {
     public class Benchmarks
     {
-        public PointClass point_1;
-        public PointClass point_2;
-        public PointStructFloat point_3;
-        public PointStructFloat point_4;
-        public PointStructDouble point_5;
-        public PointStructDouble point_6;
-
-        [Params(234, 18)]
-        public int X1;
-        [Params(134, 98)]
-        public int X2;
-        [Params(34, 572)]
-        public int Y1;
-        [Params(24, 34)]
-        public int Y2;
+        static int numberOfValues = 10000;
+        PointClass[] arrayPointClass = new PointClass[numberOfValues];
+        PointStructFloat[] arrayPointStructFloat = new PointStructFloat[numberOfValues];
+        PointStructDouble[] arrayPointStructDouble = new PointStructDouble[numberOfValues];
 
         [GlobalSetup]
-        public void Setup()
+        public void GlobalSetup()
         {
-            point_1 = new PointClass(X1, Y1);
-            point_2 = new PointClass(X2, Y2);
-            point_3 = new PointStructFloat(X1, Y1);
-            point_4 = new PointStructFloat(X2, Y2);
-            point_5 = new PointStructDouble(X1, Y1);
-            point_6 = new PointStructDouble(X2, Y2);
+            float x;
+            float y;
+            Random random = new Random();
+
+            for (int i = 0; i < numberOfValues; i++)
+            {
+                x = random.Next(500);
+                y = random.Next(500);
+
+                arrayPointClass[i] = new PointClass(x, y);
+                arrayPointStructFloat[i] = new PointStructFloat(x, y);
+                arrayPointStructDouble[i] = new PointStructDouble(x, y);
+            }
         }
 
         [Benchmark]
         public void CalculationDistance_PointSetByClassWithTypeFloat()
         {
-            point_1.Distance(point_2);
+            for (int i = 0; i < arrayPointClass.Length; i++)
+            {
+                int indexFromEndArray = arrayPointClass.Length - (i + 1);
+                arrayPointClass[i].Distance(arrayPointClass[indexFromEndArray]);
+            }
         }
 
         [Benchmark]
         public void CalculationDistance_PointSetByStructWithTypeFloat()
         {
-            point_3.Distance(point_4);
+            for (int i = 0; i < arrayPointStructFloat.Length; i++)
+            {
+                int indexFromEndArray = arrayPointStructFloat.Length - (i + 1);
+                arrayPointStructFloat[i].Distance(arrayPointStructFloat[indexFromEndArray]);
+            }
         }
         [Benchmark]
         public void CalculationDistance_PointSetByStructWithTypeFloat_Fsrt()
         {
-            point_3.Distance_Fsrt(point_4);
+            for (int i = 0; i < arrayPointStructFloat.Length; i++)
+            {
+                int indexFromEndArray = arrayPointStructFloat.Length - (i + 1); 
+                arrayPointStructFloat[i].Distance_Fsrt(arrayPointStructFloat[indexFromEndArray]);
+            }
         }
         [Benchmark]
         public void CalculationDistance_PointSetByStructWithTypeFloat_NotSqrt()
         {
-            point_3.Distance_NotSqrt(point_4);
+            for (int i = 0; i < arrayPointStructFloat.Length; i++)
+            {
+                int indexFromEndArray = arrayPointStructFloat.Length - (i + 1);
+                arrayPointStructFloat[i].Distance_NotSqrt(arrayPointStructFloat[indexFromEndArray]);
+            }
         }
         [Benchmark]
         public void CalculationDistance_PointSetByStructWithTypeDouble()
         {
-            point_5.Distance(point_6);
+            for (int i = 0; i < arrayPointStructDouble.Length; i++)
+            {
+                int indexFromEndArray = arrayPointStructDouble.Length - (i + 1); 
+                arrayPointStructDouble[i].Distance(arrayPointStructDouble[indexFromEndArray]);
+            }
         }
 
     }
