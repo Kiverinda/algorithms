@@ -1,0 +1,7 @@
+D:\Training\Algorithms\Lesson_1\Task_1\bin\Debug\Task_1.exe.config
+D:\Training\Algorithms\Lesson_1\Task_1\bin\Debug\Task_1.exe
+D:\Training\Algorithms\Lesson_1\Task_1\bin\Debug\Task_1.pdb
+D:\Training\Algorithms\Lesson_1\Task_1\obj\Debug\Task_1.csprojAssemblyReference.cache
+D:\Training\Algorithms\Lesson_1\Task_1\obj\Debug\Task_1.csproj.CoreCompileInputs.cache
+D:\Training\Algorithms\Lesson_1\Task_1\obj\Debug\Task_1.exe
+D:\Training\Algorithms\Lesson_1\Task_1\obj\Debug\Task_1.pdb
